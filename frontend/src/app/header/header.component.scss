@@ -1,0 +1,38 @@
+@import '../../vars';
+
+.header {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid $lightText;
+  color: $lightText;
+  padding-bottom: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 50px;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 10px;
+}
+
+.version {
+  font-size: 9px;
+  margin-top: 5px;
+}
+  
+
+  
+
+  
