@@ -1,0 +1,52 @@
+<form [formGroup]="articleForm" novalidate (ngSubmit)="save(articleForm)">
+
+  <div formArrayName="authors">
+    <div *ngFor="let author of articleForm.controls.authors.controls; let i = index">
+      <div>
+        <span>Author {{i + 1}}</span>
+        <span
+          *ngIf="articleForm.controls.authors.controls.length > 1"
+          (click)="removeAuthor(i)">
+        </span>
+      </div>
+
+      <div [formGroupName]="i">
+        <label>
+          Фамилия
+          <input type="text" formControlName="lastName">
+        </label>
+        <label>
+          Имя
+          <input type="text" formControlName="firstName">
+        </label>
+        <label>
+          Отчество
+          <input type="text" formControlName="middleName">
+        </label>
+      </div>
+    </div>
+  </div>
+  <button (click)="addAuthor()">Добавить автора</button>
+
+  <label>
+    Название
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Город
+    <input type="text" formControlName="city">
+  </label>
+  <label>
+    Издатель
+    <input type="text" formControlName="publisher">
+  </label>
+  <label>
+    Год
+    <input type="number" formControlName="year">
+  </label>
+  <label>
+    Кол-во страниц
+    <input type="number" formControlName="pages">
+  </label>
+  <button type="submit" [disabled]="!articleForm.valid">Добавить</button>
+</form>
