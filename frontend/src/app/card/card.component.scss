@@ -1,0 +1,8 @@
+@import "../../vars";
+
+.card {
+  padding: 20px;
+  background-color: $lightBG;
+  border-radius: 10px;
+  @include shadow();
+}

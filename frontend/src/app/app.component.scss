@@ -1,5 +1,13 @@
 @import '../vars';
 
-.app {
+:host {
+  display: block;
   background-color: $mainColor;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
