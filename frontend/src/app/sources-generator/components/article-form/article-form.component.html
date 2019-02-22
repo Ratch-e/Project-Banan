@@ -1,15 +1,10 @@
 <form [formGroup]="articleForm" novalidate (ngSubmit)="save(articleForm)">
 
   <div formArrayName="authors">
-    <div *ngFor="let author of articleForm.controls.authors.controls; let i = index">
-      <div>
-        <span>Author {{i + 1}}</span>
-        <span
-          *ngIf="articleForm.controls.authors.controls.length > 1"
-          (click)="removeAuthor(i)">
-        </span>
-      </div>
-
+    <div
+      class="author"
+      *ngFor="let author of articleForm.controls.authors.controls; let i = index"
+    >
       <div [formGroupName]="i">
         <label>
           Фамилия
@@ -23,10 +18,16 @@
           Отчество
           <input type="text" formControlName="middleName">
         </label>
+        <button
+          *ngIf="articleForm.controls.authors.controls.length > 1"
+          (click)="removeAuthor(i)"
+        >
+          Удалить автора
+        </button>
       </div>
     </div>
+    <button (click)="addAuthor()">Добавить автора</button>
   </div>
-  <button (click)="addAuthor()">Добавить автора</button>
 
   <label>
     Название
