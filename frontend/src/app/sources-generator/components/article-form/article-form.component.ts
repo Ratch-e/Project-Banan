@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import Article from '../../shared/models/sources/article';
 import Author from '../../shared/models/author';
+import Article from '../../shared/models/sources/article';
 
 @Component({
   selector: 'app-article-form',
@@ -11,6 +11,8 @@ import Author from '../../shared/models/author';
 export class ArticleFormComponent implements OnInit {
   public articleForm: FormGroup;
   public authorsDeletable: Boolean;
+  public article: Article;
+  public author: Author;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -27,7 +29,7 @@ export class ArticleFormComponent implements OnInit {
     });
   }
 
-  public save(model: Article): void {
+  public save(model: FormGroup): void {
     console.log(model);
   }
 
