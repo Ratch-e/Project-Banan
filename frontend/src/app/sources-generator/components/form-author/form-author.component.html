@@ -1,0 +1,20 @@
+<div [formGroup]="group">
+    <label>
+      Фамилия
+      <input type="text" formControlName="lastName">
+    </label>
+    <label>
+      Имя
+      <input type="text" formControlName="firstName">
+    </label>
+    <label>
+      Отчество
+      <input type="text" formControlName="middleName">
+    </label>
+    <button
+      *ngIf="isDeletable"
+      (click)="remove(id)"
+    >
+      Удалить автора
+    </button>
+  </div>

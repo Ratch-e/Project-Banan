@@ -10,6 +10,7 @@ import Author from '../../shared/models/author';
 })
 export class ArticleFormComponent implements OnInit {
   public articleForm: FormGroup;
+  public authorsDeletable: Boolean;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -30,14 +31,20 @@ export class ArticleFormComponent implements OnInit {
     console.log(model);
   }
 
-  public addAuthor(): void {
+  public addAuthor = (): void => {
     const control = this.articleForm.get('authors') as FormArray;
     control.push(this.initAuthor());
+    this.checkDeletable(control);
   }
 
-  public removeAuthor(index: number): void {
+  public removeAuthor = (index: number): void => {
     const control = this.articleForm.get('authors') as FormArray;
     control.removeAt(index);
+    this.checkDeletable(control);
+  }
+
+  private checkDeletable = (control) => {
+    this.authorsDeletable = control.length > 1;
   }
 
   private initAuthor(): FormGroup {

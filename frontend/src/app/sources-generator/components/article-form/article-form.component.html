@@ -6,24 +6,12 @@
       *ngFor="let author of articleForm.controls.authors.controls; let i = index"
     >
       <div [formGroupName]="i">
-        <label>
-          Фамилия
-          <input type="text" formControlName="lastName">
-        </label>
-        <label>
-          Имя
-          <input type="text" formControlName="firstName">
-        </label>
-        <label>
-          Отчество
-          <input type="text" formControlName="middleName">
-        </label>
-        <button
-          *ngIf="articleForm.controls.authors.controls.length > 1"
-          (click)="removeAuthor(i)"
-        >
-          Удалить автора
-        </button>
+        <app-form-author
+          [group]="articleForm.controls.authors.controls[i]"
+          [remove]="removeAuthor"
+          [deletable]="authorsDeletable"
+          [id]="i"
+        ></app-form-author>
       </div>
     </div>
     <button (click)="addAuthor()">Добавить автора</button>
