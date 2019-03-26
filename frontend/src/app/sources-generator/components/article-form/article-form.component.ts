@@ -5,7 +5,7 @@ import { SourcesGeneratorService } from '../../sources-generator.service';
 @Component({
   selector: 'app-article-form',
   templateUrl: './article-form.component.html',
-  styleUrls: ['./article-form.component.scss']
+  styleUrls: ['../new-source/new-source.component.scss']
 })
 export class ArticleFormComponent implements OnInit {
   public articleForm: FormGroup;

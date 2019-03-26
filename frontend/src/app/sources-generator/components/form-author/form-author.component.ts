@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
   moduleId: module.id,
   selector: 'app-form-author',
   templateUrl: './form-author.component.html',
-  styleUrls: ['./form-author.component.scss']
+  styleUrls: ['../new-source/new-source.component.scss']
 })
 export class FormAuthorComponent implements OnInit {
   @Input('group') group;

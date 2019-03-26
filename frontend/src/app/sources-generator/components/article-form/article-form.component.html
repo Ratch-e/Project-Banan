@@ -1,8 +1,8 @@
-<form [formGroup]="articleForm" novalidate (ngSubmit)="save(articleForm)">
-
-  <div formArrayName="authors">
+<form [formGroup]="articleForm" (ngSubmit)="save(articleForm)" class="form">
+  <h3 class="title">Авторы:</h3>
+  <button type="button" class="button button-secondary" (click)="addAuthor()">Добавить автора</button>
+  <div formArrayName="authors" class="authors">
     <div
-      class="author"
       *ngFor="let author of articleForm.controls.authors.controls; let i = index"
     >
       <div [formGroupName]="i">
@@ -14,28 +14,31 @@
         ></app-form-author>
       </div>
     </div>
-    <button type="button" (click)="addAuthor()">Добавить автора</button>
   </div>
 
-  <label>
-    Название
-    <input type="text" formControlName="name">
-  </label>
-  <label>
-    Город
-    <input type="text" formControlName="city">
-  </label>
-  <label>
-    Издатель
-    <input type="text" formControlName="publisher">
-  </label>
-  <label>
-    Год
-    <input type="number" formControlName="year">
-  </label>
-  <label>
-    Кол-во страниц
-    <input type="number" formControlName="pages">
-  </label>
-  <button type="submit" [disabled]="!articleForm.valid">Добавить</button>
+  <h3 class="title">Информация об источнике:</h3>
+  <div class="details">
+    <label class="form-item">
+      <input class="input" type="text" formControlName="name" required>
+      <span class="label">Название</span>
+    </label>
+    <label class="form-item">
+      <input class="input" type="text" formControlName="city" required>
+      <span class="label">Город</span>
+    </label>
+    <label class="form-item">
+      <input class="input" type="text" formControlName="publisher" required>
+      <span class="label">Издатель</span>
+    </label>
+    <label class="form-item">
+      <input class="input" type="number" formControlName="year" required>
+      <span class="label">Год</span>
+    </label>
+    <label class="form-item">
+      <input class="input" type="number" formControlName="pages" required>
+      <span class="label">Кол-во страниц</span>
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="!articleForm.valid" class="button button-submit">Добавить</button>
 </form>

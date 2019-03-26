@@ -1,10 +1,12 @@
-$mainColor: #8bc34a;
-$accentColor: #cddc39;
+$mainColor: #873a40;
+$accentColor: #d4ba5b;
+$accentColor2: #e5cbb8;
 
 $lightBG: #ffffff;
+$shadowedBG: #fafaf8;
 
-$mainText: #324f58;
-$lightText: #ffffff;
+$mainText: #23282d;
+$lightText: #fafaf8;
 
 @mixin shadow() {
   box-shadow: -2px 2px 2px 0 rgba(#000, .2);

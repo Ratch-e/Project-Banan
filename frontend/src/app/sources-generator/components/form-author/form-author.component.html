@@ -1,20 +1,21 @@
-<div [formGroup]="group">
-    <label>
-      Фамилия
-      <input type="text" formControlName="lastName" autofocus>
+<div [formGroup]="group" class="author">
+    <label class="form-item">
+      <input class="input" type="text" formControlName="lastName" autofocus required>
+      <span class="label">Фамилия</span>
     </label>
-    <label>
-      Имя
-      <input type="text" formControlName="firstName">
+    <label class="form-item">
+      <input class="input" type="text" formControlName="firstName" required>
+      <span class="label">Имя</span>
     </label>
-    <label>
-      Отчество
-      <input type="text" formControlName="middleName">
+    <label class="form-item">
+      <input class="input" type="text" formControlName="middleName" required>
+      <span class="label">Отчество</span>
     </label>
     <button
       *ngIf="isDeletable"
       (click)="remove(id)"
       type="button"
+      class="button button-warning"
     >
       Удалить автора
     </button>

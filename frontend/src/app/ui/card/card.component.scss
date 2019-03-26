@@ -1,8 +1,9 @@
 @import "../../../vars";
 
-.card {
+:host {
   padding: 20px;
   background-color: $lightBG;
   border-radius: 10px;
   @include shadow();
+  display: block;
 }

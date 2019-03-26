@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppService {
-  private version = '0.1';
+  private version = '0.5';
 
   getVersion(): string {
     return this.version;

@@ -1,0 +1,35 @@
+@import '../vars';
+
+.button {
+  background-color: $accentColor;
+  color: $mainColor;
+  padding: 6px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 1px 0 transparentize($mainText, .4);
+  transition: all .15s ease-in-out;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 3px 3px 0 transparentize($mainText, .4);
+  }
+
+  &[disabled] {
+    opacity: .3;
+    cursor: not-allowed;
+    box-shadow: 0 1px 1px 0 transparentize($mainText, .4);
+  }
+
+  &-warning {
+    background-color: $mainColor;
+    color: $accentColor;
+  }
+
+  &-secondary {
+    background-color: $shadowedBG;
+    color: $mainColor;
+    border: 1px solid $mainColor;
+  }
+}

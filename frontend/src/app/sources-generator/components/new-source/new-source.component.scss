@@ -1,0 +1,20 @@
+@import '../../../../vars';
+@import '../../../../styles/input';
+@import '../../../../styles/button';
+
+.authors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.details {
+  width: 400px;
+  margin: 15px 0;
+}
+
+.form-item {
+  position: relative;
+  display: block;
+  margin: 15px 0;
+}
