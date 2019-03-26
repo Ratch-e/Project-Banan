@@ -1,7 +1,7 @@
 @import "../../../vars";
 
 :host {
-  padding: 20px;
+  padding: 30px;
   background-color: $lightBG;
   border-radius: 10px;
   @include shadow();
