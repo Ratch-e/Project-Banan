@@ -1,0 +1,10 @@
+<h2 class="title">Список источников:</h2>
+<ol class="list" *ngIf="sources.length; else placeholder">
+  <li class="item" *ngFor="let source of sources">
+    {{getFirstAuthor(source.authors)}}. {{source.title}} [Текст] / {{[getAuthors(source.authors).join(" ")]}} &mdash; {{makeCity(source.city)}}: {{source.publisher}}, {{source.year}}. &mdash; {{source.pages}}c.
+  </li>
+</ol>
+
+<ng-template #placeholder>
+  <p class="item">Добавьте Ваши источники!</p>
+</ng-template>

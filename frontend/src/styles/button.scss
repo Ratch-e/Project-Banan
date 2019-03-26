@@ -11,9 +11,18 @@
   transition: all .15s ease-in-out;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
+  &:hover {
     box-shadow: 0 3px 3px 0 transparentize($mainText, .4);
+  }
+
+  &:focus {
+    text-decoration: underline;
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 0 1px 1px 0 transparentize($mainText, .4);
+    background-color: darken($accentColor, 10%);
   }
 
   &[disabled] {
@@ -25,11 +34,22 @@
   &-warning {
     background-color: $mainColor;
     color: $accentColor;
+
+    &:active {
+      box-shadow: 0 1px 1px 0 transparentize($mainText, .4);
+      background-color: darken($mainColor, 10%);
+    }
+
   }
 
   &-secondary {
     background-color: $shadowedBG;
     color: $mainColor;
     border: 1px solid $mainColor;
+
+    &:active {
+      box-shadow: 0 1px 1px 0 transparentize($mainText, .4);
+      background-color: darken($shadowedBG, 10%);
+    }
   }
 }
