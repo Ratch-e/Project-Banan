@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import Author from '../../shared/models/author';
-import Article from '../../shared/models/sources/article';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { SourcesGeneratorService } from '../../sources-generator.service';
 
 @Component({
   selector: 'app-article-form',
@@ -10,13 +9,15 @@ import Article from '../../shared/models/sources/article';
 })
 export class ArticleFormComponent implements OnInit {
   public articleForm: FormGroup;
-  public authorsDeletable: Boolean;
-  public article: Article;
-  public author: Author;
+  public authorsDeletable: boolean;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, public service: SourcesGeneratorService) { }
 
   ngOnInit() {
+    this.resetForm();
+  }
+
+  private resetForm = () => {
     this.articleForm = this.formBuilder.group({
       authors: this.formBuilder.array([
         this.initAuthor(),
@@ -27,10 +28,12 @@ export class ArticleFormComponent implements OnInit {
       year: [''],
       pages: [''],
     });
+    this.checkDeletable([]);
   }
 
-  public save(model: FormGroup): void {
-    console.log(model);
+  public save(form: FormGroup): void {
+    this.service.addSource(form.value);
+    this.resetForm();
   }
 
   public addAuthor = (): void => {

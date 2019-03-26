@@ -8,10 +8,10 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./form-author.component.scss']
 })
 export class FormAuthorComponent implements OnInit {
-  @Input('group') group
-  @Input('remove') remove: void
-  @Input('deletable') isDeletable: Boolean
-  @Input('id') id: number
+  @Input('group') group;
+  @Input('remove') remove: void;
+  @Input('deletable') isDeletable: boolean;
+  @Input('id') id: number;
   public authorForm: FormGroup;
 
   constructor() { }
