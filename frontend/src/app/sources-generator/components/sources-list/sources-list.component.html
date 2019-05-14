@@ -1,7 +1,13 @@
 <h2 class="title">Список источников:</h2>
 <ol class="list" *ngIf="sources.length; else placeholder">
-  <li class="item" *ngFor="let source of sources">
-    {{getFirstAuthor(source.authors)}}. {{source.title}} [Текст] / {{[getAuthors(source.authors).join(" ")]}} &mdash; {{makeCity(source.city)}}: {{source.publisher}}, {{source.year}}. &mdash; {{source.pages}}c.
+  <li class="item" *ngFor="let source of sources; let index = index">
+    <ng-container [ngSwitch]="source.type">
+
+      <ng-container *ngSwitchCase="Types.ARTICLE">
+        {{index + 1}}. {{getFirstAuthor(source.authors)}}. {{source.title}} [Текст] / {{[getAuthors(source.authors).join(" ")]}} &mdash; {{makeCity(source.city)}}: {{source.publisher}}, {{source.year}}. &mdash; {{source.pages}}c.
+      </ng-container>
+
+    </ng-container>
   </li>
 </ol>
 

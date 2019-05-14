@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { SourcesGeneratorService } from '../../sources-generator.service';
+import { TYPES } from '../../shared/constants/sources';
 
 @Component({
   selector: 'app-article-form',
@@ -14,10 +15,10 @@ export class ArticleFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public service: SourcesGeneratorService) { }
 
   ngOnInit() {
-    this.resetForm();
+    this.init();
   }
 
-  private resetForm = () => {
+  private init = () => {
     this.articleForm = this.formBuilder.group({
       authors: this.formBuilder.array([
         this.initAuthor(),
@@ -32,8 +33,10 @@ export class ArticleFormComponent implements OnInit {
   }
 
   public save(form: FormGroup): void {
+    const result = form.value;
+    result.type = TYPES.ARTICLE;
     this.service.addSource(form.value);
-    this.resetForm();
+    this.init();
   }
 
   public addAuthor = (): void => {

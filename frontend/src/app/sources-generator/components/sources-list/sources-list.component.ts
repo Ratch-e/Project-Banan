@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SourcesGeneratorService } from '../../sources-generator.service';
 import Author from '../../shared/models/author';
+import { TYPES } from '../../shared/constants/sources';
 
 @Component({
   selector: 'app-sources-list',
@@ -10,6 +11,7 @@ import Author from '../../shared/models/author';
 export class SourcesListComponent implements OnInit {
 
   sources = [];
+  public Types = TYPES;
   constructor(public service: SourcesGeneratorService) { }
 
   public makeCity = (city: string) => {

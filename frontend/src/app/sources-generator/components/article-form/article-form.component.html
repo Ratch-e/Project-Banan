@@ -2,18 +2,18 @@
   <h3 class="title">Авторы:</h3>
   <button type="button" class="button button-secondary" (click)="addAuthor()">Добавить автора</button>
   <div formArrayName="authors" class="authors">
-    <div
+    <ng-container
       *ngFor="let author of articleForm.controls.authors.controls; let i = index"
     >
-      <div [formGroupName]="i">
+      <ng-container [formGroupName]="i">
         <app-form-author
           [group]="articleForm.controls.authors.controls[i]"
           [remove]="removeAuthor"
           [deletable]="authorsDeletable"
           [id]="i"
         ></app-form-author>
-      </div>
-    </div>
+      </ng-container>
+    </ng-container>
   </div>
 
   <h3 class="title">Информация об источнике:</h3>
